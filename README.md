@@ -32,7 +32,7 @@ Equals
 
 #### bode graph
 
-![figure 1](C:\Users\xtx\Desktop\System Transfer Function For Wave\figure 1.jpg)
+![figure 1](figure 1.jpg)
 
 ### Continuous System
 
@@ -53,5 +53,5 @@ Sample time: 2.267574e-005 s
 
 #### bode graph
 
-![figure 2](C:\Users\xtx\Desktop\System Transfer Function For Wave\figure 2.jpg)
+![figure 2](figure 2.jpg)
 
