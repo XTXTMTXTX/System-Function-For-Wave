@@ -1,10 +1,12 @@
-# System Function For Wave
+# Transfer Function For Wave
 
-Usage: System Function For Wave.exe WaveFile.wav
+Usage: System Transfer Function For Wave.exe WaveFile.wav
 
 It'll generate WaveFile.wav.new.wav as output.
 
 Specify the numerator and denominator coefficients ordered in descending powers of $z$ or $s$
+
+See [Wikipedia: Transfer_Function](https://en.wikipedia.org/wiki/Transfer_function) for more information.
 
 ## Examples: 
 
