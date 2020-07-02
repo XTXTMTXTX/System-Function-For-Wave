@@ -32,7 +32,7 @@ Equals
 
 #### bode graph
 
-![figure 1](figure 1.jpg)
+![figure 1](https://raw.githubusercontent.com/XTXTMTXTX/System-Function-For-Wave/master/figure 1.jpg)
 
 ### Continuous System
 
@@ -53,5 +53,5 @@ Sample time: 2.267574e-005 s
 
 #### bode graph
 
-![figure 2](figure 2.jpg)
+![figure 2](https://raw.githubusercontent.com/XTXTMTXTX/System-Function-For-Wave/master/figure 2.jpg)
 
