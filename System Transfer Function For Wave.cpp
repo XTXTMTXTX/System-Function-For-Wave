@@ -27,7 +27,7 @@ public:
 		memcpy(a,num,sizeof(double)*(size+1));
 		memcpy(b,den,sizeof(double)*(size+1));
 		w=(double*)malloc(sizeof(double)*(size+1));
-		memset(w,sizeof(w),0);
+		memset(w,sizeof(double)*(size+1),0);
 	}
 	virtual double process(double input)=0;
 	Sys(){a=b=w=nullptr;}
@@ -58,9 +58,20 @@ protected:
 public:
 	Continuous_Sys(double f):freq(f){}
 	double process(double input){
-		for(int i=size;i>0;i--)w[i]+=w[i-1]/freq;w[0]=input;
-		for(int i=1;i<=size;i++)w[0]-=b[size-i]*w[i];
-		w[0]/=b[size];
+		static double tmp,wnew;
+		tmp=wnew=b[0];
+		for(int i=1;i<=size;i++){
+			wnew=b[i]+tmp/2.0/freq;
+			input-=w[size-i]*tmp/2.0/freq+w[size-i+1]*tmp;
+			tmp=wnew;
+		}
+		tmp=wnew=input/wnew;
+		for(int i=1;i<=size;i++){
+			wnew=(w[i-1]+tmp)/2.0/freq+w[i];
+			w[i-1]=tmp;
+			tmp=wnew;
+		}
+		w[size]=wnew;
 		static double output;
 		output=0;
 		for(int i=0;i<=size;i++)output+=a[size-i]*w[i];
@@ -162,8 +173,8 @@ int main(int argc, char* argv[]){
 	r=max(n,m);
 	num=(double*)malloc(sizeof(double)*(r+1));
 	den=(double*)malloc(sizeof(double)*(r+1));
-	memset(num,sizeof(num),0);
-	memset(den,sizeof(den),0);
+	memset(num,sizeof(double)*(r+1),0);
+	memset(den,sizeof(double)*(r+1),0);
 	printf("The coefficients of numerator: ");
 	for(int i=n;i>=0;i--)scanf("%lf",num+i);
 	printf("The coefficients of denominator: ");
