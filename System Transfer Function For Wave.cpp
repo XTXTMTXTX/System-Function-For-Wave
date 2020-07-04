@@ -27,7 +27,7 @@ public:
 		memcpy(a,num,sizeof(double)*(size+1));
 		memcpy(b,den,sizeof(double)*(size+1));
 		w=(double*)malloc(sizeof(double)*(size+1));
-		memset(w,sizeof(double)*(size+1),0);
+		memset(w,0,sizeof(double)*(size+1));
 	}
 	virtual double process(double input)=0;
 	Sys(){a=b=w=nullptr;}
@@ -173,8 +173,8 @@ int main(int argc, char* argv[]){
 	r=max(n,m);
 	num=(double*)malloc(sizeof(double)*(r+1));
 	den=(double*)malloc(sizeof(double)*(r+1));
-	memset(num,sizeof(double)*(r+1),0);
-	memset(den,sizeof(double)*(r+1),0);
+	memset(num,0,sizeof(double)*(r+1));
+	memset(den,0,sizeof(double)*(r+1));
 	printf("The coefficients of numerator: ");
 	for(int i=n;i>=0;i--)scanf("%lf",num+i);
 	printf("The coefficients of denominator: ");
